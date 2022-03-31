@@ -4,7 +4,7 @@
 .dart_tool/
 .packages
 build/
-./idea
+.idea
 ios/Flutter/
 # If you're building an application, you may want to check-in your pubspec.lock
 pubspec.lock
@@ -21,3 +21,4 @@ doc/api/
 *.js_
 *.js.deps
 *.js.map
+android/diceulator_android.iml
