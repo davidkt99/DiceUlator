@@ -1,50 +1,39 @@
+import 'package:diceulator/Components/calc_button.dart';
+import 'package:diceulator/Components/calc_key_pad.dart';
+import 'package:diceulator/Design/app_theme.dart';
+import 'package:diceulator/Design/size_config.dart';
 import 'package:flutter/material.dart';
 
 
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  final String title;
+class DiceCalcPage extends StatefulWidget {
+  const DiceCalcPage({Key? key}) : super(key: key);
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<DiceCalcPage> createState() => _DiceCalcPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
+class _DiceCalcPageState extends State<DiceCalcPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
+    return Container(
+      color: AppTheme.primary,
+        width: SizeConfig.widthMultiplier * 100,
+        height: SizeConfig.heightMultiplier * 100,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+            Expanded(
+              flex: 5,
+                child: Container()
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+            const Expanded(
+              flex: 6,
+                child: CalcKeyPad()
             ),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
-    );
+      );
   }
 }

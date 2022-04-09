@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: "/HomePage",
       routes: {
-        "/HomePage": (context) => const MyHomePage(title: 'Flutter Demo Home Page'),
+        "/HomePage": (context) => const DiceCalcPage(),
       },
     );
   }
