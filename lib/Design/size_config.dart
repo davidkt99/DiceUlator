@@ -1,4 +1,4 @@
-import 'package:flutter/rendering.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 
 class SizeConfig {
@@ -13,6 +13,8 @@ class SizeConfig {
   static double widthMultiplier = 0;
   static bool isPortrait = true;
   static bool isMobilePortrait = false;
+
+  static double calcButtonTextScaleFactor = 2.4;
 
   void init(BoxConstraints constraints, Orientation orientation) {
     if (orientation == Orientation.portrait) {
@@ -37,7 +39,9 @@ class SizeConfig {
     heightMultiplier = _blockHeight;
     widthMultiplier = _blockWidth;
 
-    print("Width: $_blockWidth");
-    print("Height: $_blockHeight");
+    if (kDebugMode) {
+      print("Width: $_blockWidth");
+      print("Height: $_blockHeight");
+    }
   }
 }

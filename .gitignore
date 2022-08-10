@@ -5,7 +5,19 @@
 .packages
 build/
 .idea
+ios/Runner
+ios
 ios/Flutter/
+android/app
+.flutter-plugins-dependencies
+
+**/doc/api/
+.dart_tool/
+.flutter-plugins
+.packages
+.pub-cache/
+.pub/
+/build/
 # If you're building an application, you may want to check-in your pubspec.lock
 pubspec.lock
 

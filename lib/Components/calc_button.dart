@@ -1,47 +1,53 @@
-import 'package:diceulator/Design/app_theme.dart';
+import 'package:diceulator/Design/size_config.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 
 class CalcButton extends ConsumerStatefulWidget {
-  const CalcButton({Key? key}) : super(key: key);
+  final String label;
+
+  const CalcButton(this.label, {Key? key}) : super(key: key);
 
   @override
   ConsumerState<CalcButton> createState() => _CalcButtonState();
 }
 
 class _CalcButtonState extends ConsumerState<CalcButton> {
+
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: GestureDetector(
-        child: Container(
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: AppTheme.textPrimary.withOpacity(0.2),
-          //   boxShadow: const [
-          // BoxShadow(
-          // color: AppTheme.textPrimary,
-          //   offset: Offset(
-          //     5.0,
-          //     5.0,
-          //   ),
-          //   blurRadius: 10.0,
-          //   spreadRadius: 2.0,
-          // ), //BoxShadow
-          // BoxShadow(
-          //   color: Colors.white,
-          //   offset: Offset(0.0, 0.0),
-          //   blurRadius: 0.0,
-          //   spreadRadius: 0.0,
-          // ), //BoxShadow
-          // ],
-          ),
-          child: Center(
-            child: Text('1', style: TextStyle(color: AppTheme.textPrimary, fontSize: 20),),
-          ),
+    return Center(
+      child: ElevatedButton(
+        child: Text(
+            widget.label,
+            style: GoogleFonts.getFont(
+                'Lora',
+                textStyle:
+                const TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold
+                )
+            ),
+          textScaleFactor: SizeConfig.calcButtonTextScaleFactor,
+        ),
+        onPressed: () {
+          handleCalcButton(widget.label);
+        },
+        style: ElevatedButton.styleFrom(
+            primary: Colors.white,
+            shadowColor: Colors.deepPurpleAccent,
+            elevation: 10,
+            side: const BorderSide(width: 0.5, color: Colors.white10),
+            shape: const CircleBorder(),
+          visualDensity: const VisualDensity(horizontal: 4, vertical: 4),
         ),
       ),
     );
+  }
+
+  void handleCalcButton(String label){
+    HapticFeedback.mediumImpact();
+    print(label);
   }
 }
