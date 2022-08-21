@@ -1,5 +1,6 @@
-import 'package:diceulator/Components/calc_button.dart';
 import 'package:flutter/material.dart';
+
+import '../../../Common/calc_button.dart';
 
 class CalcKeyPad extends StatelessWidget {
   const CalcKeyPad({Key? key}) : super(key: key);
@@ -9,7 +10,7 @@ class CalcKeyPad extends StatelessWidget {
     return Container(
       color: Colors.grey[100],
       child: Padding(
-        padding: const EdgeInsets.only(bottom: 40, left: 10, right: 10),
+        padding: const EdgeInsets.only(bottom: 40, left: 10, right: 10, top: 20),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
@@ -19,7 +20,7 @@ class CalcKeyPad extends StatelessWidget {
                 CalcButton("C"),
                 CalcButton("-"),
                 CalcButton(""),
-                CalcButton("7"),
+                CalcButton(""),
               ],
             ),
             Row(
@@ -28,7 +29,7 @@ class CalcKeyPad extends StatelessWidget {
                 CalcButton("7"),
                 CalcButton("8"),
                 CalcButton("9"),
-                CalcButton("x"),
+                CalcButton("X"),
               ],
             ),
             Row(
@@ -47,6 +48,15 @@ class CalcKeyPad extends StatelessWidget {
                 CalcButton("2"),
                 CalcButton("3"),
                 CalcButton("+"),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: const [
+                CalcButton("0"),
+                CalcButton("d"),
+                CalcButton(""),
+                CalcButton("="),
               ],
             ),
           ],

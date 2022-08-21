@@ -1,18 +1,22 @@
-import 'package:diceulator/Components/calc_key_pad.dart';
-import 'package:diceulator/Design/app_theme.dart';
+import 'dart:ffi';
+
 import 'package:diceulator/Design/size_config.dart';
+import 'package:diceulator/Pages/DiceCalcPage/Components/dice_calc_providers.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import 'Components/calc_key_pad.dart';
 
 
 
-class DiceCalcPage extends StatefulWidget {
+class DiceCalcPage extends ConsumerStatefulWidget {
   const DiceCalcPage({Key? key}) : super(key: key);
 
   @override
-  State<DiceCalcPage> createState() => _DiceCalcPageState();
+  _DiceCalcPageState createState() => _DiceCalcPageState();
 }
 
-class _DiceCalcPageState extends State<DiceCalcPage> {
+class _DiceCalcPageState extends ConsumerState<DiceCalcPage> {
 
   @override
   Widget build(BuildContext context) {
@@ -25,10 +29,12 @@ class _DiceCalcPageState extends State<DiceCalcPage> {
           children: <Widget>[
             Expanded(
               flex: 5,
-                child: Container()
+                child: Container(
+                  child: Text(ref.watch(calcExpression)),
+                )
             ),
             const Expanded(
-              flex: 7,
+              flex: 8,
                 child: CalcKeyPad()
             ),
           ],
