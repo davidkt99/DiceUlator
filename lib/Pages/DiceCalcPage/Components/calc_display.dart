@@ -21,18 +21,22 @@ class _CalcDisplayState extends ConsumerState<CalcDisplay> {
       mainAxisAlignment: MainAxisAlignment.end,
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
-        Expanded(flex: 4, child: Container(),),
+        Expanded(
+          flex: 4,
+          child: Container(),
+        ),
         Expanded(
           flex: 2,
           child: DefaultTextStyle(
             style: const TextStyle(),
-            child: Container(
-              alignment: Alignment.centerRight,
-              child: Text(
-                  ref.watch(calcExpression),
-                maxLines: 2,
-                style: AppTheme.font,
-                textScaleFactor: AppTheme.textScaleFactorDisplay,
+            child: SingleChildScrollView(
+              child: Container(
+                alignment: Alignment.centerRight,
+                child: Text(
+                    ref.watch(calcExpression),
+                  style: AppTheme.font,
+                  textScaleFactor: AppTheme.textScaleFactorDisplay,
+                ),
               ),
             ),
           ),
