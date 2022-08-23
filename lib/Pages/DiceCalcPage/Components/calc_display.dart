@@ -33,7 +33,7 @@ class _CalcDisplayState extends ConsumerState<CalcDisplay> {
               child: Container(
                 alignment: Alignment.centerRight,
                 child: Text(
-                    ref.watch(calcExpression),
+                    ref.watch(calcExpression.provider),
                   style: AppTheme.font,
                   textScaleFactor: SizeConfig.textScaleFactorDisplay,
                 ),

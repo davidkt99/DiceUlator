@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../Util/StrFunc.dart';
+import '../Util/string_functions.dart';
 
 class CalcButton extends ConsumerStatefulWidget {
   final String label;
@@ -56,7 +56,35 @@ class _CalcButtonState extends ConsumerState<CalcButton> {
 
   void handleCalcButton(String label){
     HapticFeedback.mediumImpact();
-    ref.read(calcExpression.notifier).add(label);
-    print(ref.watch(calcExpression));
+
+    switch(label){
+      case "=": handleEquals();
+        break;
+      case "C": handleClear();
+        break;
+      case "+": handleAddToStr(addSpaces(label));
+        break;
+      case "-": handleAddToStr(addSpaces(label));
+        break;
+      default: handleAddToStr(label);
+        break;
+    }
+    print(ref.watch(calcExpression.provider));
+  }
+
+  void handleEquals(){
+
+  }
+
+  void handleAddToStr(String label){
+    ref.read(calcExpression.provider.notifier).add(label);
+  }
+
+  void handleClear(){
+    ref.read(calcExpression.provider.notifier).clear();
+  }
+
+  String addSpaces(String label){
+    return " " + label + " ";
   }
 }
