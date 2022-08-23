@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../Util/StrFunc.dart';
+
 class CalcButton extends ConsumerStatefulWidget {
   final String label;
   final int flex;
@@ -28,7 +30,9 @@ class _CalcButtonState extends ConsumerState<CalcButton> {
           child: Text(
               widget.label,
               style: AppTheme.font,
-            textScaleFactor: SizeConfig.calcButtonTextScaleFactor,
+            textScaleFactor: isAlphaNumeric(widget.label) || widget.label == "D" ?
+            SizeConfig.textScaleFactorKeys :
+            SizeConfig.textScaleFactorKeysOperators,
           ),
           onPressed: () {
             handleCalcButton(widget.label);

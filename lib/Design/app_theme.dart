@@ -30,7 +30,6 @@ class AppTheme{
   ];
 
   /// Text
-  static const textScaleFactorDisplay = 2.2;
   static TextStyle font = GoogleFonts.getFont(
       'Lora',
       textStyle:

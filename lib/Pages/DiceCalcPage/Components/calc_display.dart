@@ -35,7 +35,7 @@ class _CalcDisplayState extends ConsumerState<CalcDisplay> {
                 child: Text(
                     ref.watch(calcExpression),
                   style: AppTheme.font,
-                  textScaleFactor: AppTheme.textScaleFactorDisplay,
+                  textScaleFactor: SizeConfig.textScaleFactorDisplay,
                 ),
               ),
             ),

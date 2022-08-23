@@ -14,7 +14,9 @@ class SizeConfig {
   static bool isPortrait = true;
   static bool isMobilePortrait = false;
 
-  static double calcButtonTextScaleFactor = 2.4;
+  static const textScaleFactorDisplay = 2.2;
+  static const textScaleFactorKeys = 2.6;
+  static const textScaleFactorKeysOperators = 3.8;
 
   void init(BoxConstraints constraints, Orientation orientation) {
     if (orientation == Orientation.portrait) {
