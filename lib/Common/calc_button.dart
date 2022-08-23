@@ -19,23 +19,25 @@ class _CalcButtonState extends ConsumerState<CalcButton> {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      flex: 1,
-      child: ElevatedButton(
-        child: Text(
-            widget.label,
-            style: AppTheme.font,
-          textScaleFactor: SizeConfig.calcButtonTextScaleFactor,
-        ),
-        onPressed: () {
-          handleCalcButton(widget.label);
-        },
-        style: ElevatedButton.styleFrom(
-            primary: AppTheme.primaryBackground,
-            shadowColor: AppTheme.primary,
-            elevation: 10,
-            shape: const CircleBorder(),
-            
-          // visualDensity: AppTheme.visualDensity
+      child: Container(
+        margin: EdgeInsets.all(8),
+        child: ElevatedButton(
+          child: Text(
+              widget.label,
+              style: AppTheme.font,
+            textScaleFactor: SizeConfig.calcButtonTextScaleFactor,
+          ),
+          onPressed: () {
+            handleCalcButton(widget.label);
+          },
+          style: ElevatedButton.styleFrom(
+              primary: AppTheme.primaryBackground,
+              shadowColor: AppTheme.primary,
+              elevation: 10,
+              shape: const CircleBorder(),
+              
+            // visualDensity: AppTheme.visualDensity
+          ),
         ),
       ),
     );

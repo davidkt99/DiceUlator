@@ -11,10 +11,7 @@ class AppTheme{
   static final secondaryBackground = Colors.grey[100];
 
   /// General
-  static const visualDensity = VisualDensity(
-      horizontal: 4,
-      vertical: 4
-  );
+  static const crossAxisAlignmentKeyPad = CrossAxisAlignment.stretch;
 
   /// Shadows
   static const textShadow = <Shadow>[
