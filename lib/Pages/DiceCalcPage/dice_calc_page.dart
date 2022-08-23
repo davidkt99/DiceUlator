@@ -2,6 +2,7 @@ import 'package:diceulator/Design/size_config.dart';
 import 'package:diceulator/Pages/DiceCalcPage/Components/calc_display.dart';
 import 'package:flutter/material.dart';
 
+import '../../Design/app_theme.dart';
 import 'Components/calc_key_pad.dart';
 
 
@@ -18,7 +19,7 @@ class _DiceCalcPageState extends State<DiceCalcPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
+      color: AppTheme.primaryBackground,
         width: SizeConfig.widthMultiplier * 100,
         height: SizeConfig.heightMultiplier * 100,
         child: Column(
@@ -35,7 +36,7 @@ class _DiceCalcPageState extends State<DiceCalcPage> {
               flex: 8,
                 child: Container(
                   decoration: BoxDecoration(
-                      color: Colors.grey[100],
+                      color: AppTheme.secondaryBackground,
                     borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(30.0),
                         topRight: Radius.circular(30.0)
@@ -44,7 +45,7 @@ class _DiceCalcPageState extends State<DiceCalcPage> {
                       BoxShadow(
                         offset: Offset(2.0, 0),
                         blurRadius: 2.0,
-                        color: Colors.deepPurpleAccent,
+                        color: AppTheme.primary,
                       )
                     ]
                   ),

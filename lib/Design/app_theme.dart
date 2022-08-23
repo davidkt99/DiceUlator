@@ -6,18 +6,20 @@ class AppTheme{
 
   /// General Colors
   static const primary = Colors.deepPurpleAccent;
-  static const textPrimary = Colors.white;
+  static const textPrimary = Colors.black;
+  static const primaryBackground = Colors.white;
+  static final secondaryBackground = Colors.grey[100];
   static TextStyle font = GoogleFonts.getFont(
       'Lora',
       textStyle:
       const TextStyle(
-          color: Colors.black,
+          color: textPrimary,
           fontWeight: FontWeight.bold,
           shadows: <Shadow>[
             Shadow(
               offset: Offset(1.0, 1.0),
               blurRadius: 2.0,
-              color: Colors.deepPurpleAccent,
+              color: primary,
             )
           ]
       ),

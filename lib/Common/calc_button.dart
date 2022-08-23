@@ -28,8 +28,8 @@ class _CalcButtonState extends ConsumerState<CalcButton> {
         handleCalcButton(widget.label);
       },
       style: ElevatedButton.styleFrom(
-          primary: Colors.white,
-          shadowColor: Colors.deepPurpleAccent,
+          primary: AppTheme.primaryBackground,
+          shadowColor: AppTheme.primary,
           elevation: 10,
           shape: const CircleBorder(),
         visualDensity: const VisualDensity(horizontal: 4, vertical: 4),
