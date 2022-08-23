@@ -7,8 +7,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class CalcButton extends ConsumerStatefulWidget {
   final String label;
+  final int flex;
+  final bool long;
 
-  const CalcButton(this.label, {Key? key}) : super(key: key);
+  const CalcButton({Key? key, required this.label, this.flex = 1, this.long = false}) : super(key: key);
 
   @override
   ConsumerState<CalcButton> createState() => _CalcButtonState();
@@ -19,8 +21,9 @@ class _CalcButtonState extends ConsumerState<CalcButton> {
   @override
   Widget build(BuildContext context) {
     return Expanded(
+      flex: widget.flex,
       child: Container(
-        margin: EdgeInsets.all(8),
+        margin: const EdgeInsets.all(8),
         child: ElevatedButton(
           child: Text(
               widget.label,
@@ -34,7 +37,11 @@ class _CalcButtonState extends ConsumerState<CalcButton> {
               primary: AppTheme.primaryBackground,
               shadowColor: AppTheme.primary,
               elevation: 10,
-              shape: const CircleBorder(),
+              shape: widget.long
+                  ? RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(50),
+                    )
+                  : const CircleBorder(),
               
             // visualDensity: AppTheme.visualDensity
           ),

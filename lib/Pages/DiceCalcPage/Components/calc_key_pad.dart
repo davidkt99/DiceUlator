@@ -15,10 +15,10 @@ class CalcKeyPad extends StatelessWidget {
           child: Row(
             crossAxisAlignment: AppTheme.crossAxisAlignmentKeyPad,
             children: const [
-              CalcButton("C"),
-              CalcButton("-"),
-              CalcButton(""),
-              CalcButton(""),
+              CalcButton(label: "C"),
+              CalcButton(label: ""),
+              CalcButton(label: ""),
+              CalcButton(label: "")
             ],
           ),
         ),
@@ -27,10 +27,10 @@ class CalcKeyPad extends StatelessWidget {
           child: Row(
             crossAxisAlignment: AppTheme.crossAxisAlignmentKeyPad,
             children: const [
-              CalcButton("7"),
-              CalcButton("8"),
-              CalcButton("9"),
-              CalcButton("X"),
+              CalcButton(label: "7"),
+              CalcButton(label: "8"),
+              CalcButton(label: "7"),
+              CalcButton(label: "+")
             ],
           ),
         ),
@@ -39,36 +39,49 @@ class CalcKeyPad extends StatelessWidget {
           child: Row(
             crossAxisAlignment: AppTheme.crossAxisAlignmentKeyPad,
             children: const [
-              CalcButton("4"),
-              CalcButton("5"),
-              CalcButton("6"),
-              CalcButton("-"),
+              CalcButton(label: "4"),
+              CalcButton(label: "5"),
+              CalcButton(label: "6"),
+              CalcButton(label: "-")
             ],
           ),
         ),
         Expanded(
-          flex: 1,
-          child: Row(
-            crossAxisAlignment: AppTheme.crossAxisAlignmentKeyPad,
-            children: const [
-              CalcButton("1"),
-              CalcButton("2"),
-              CalcButton("3"),
-              CalcButton("+"),
-            ],
-          ),
-        ),
-        Expanded(
-          flex: 1,
-          child: Row(
-            crossAxisAlignment: AppTheme.crossAxisAlignmentKeyPad,
-            children: const [
-              CalcButton("0"),
-              CalcButton("d"),
-              CalcButton(""),
-              CalcButton("="),
-            ],
-          ),
+          flex: 2,
+            child: Row(
+              crossAxisAlignment: AppTheme.crossAxisAlignmentKeyPad,
+              children: [
+                Expanded(
+                  flex: 3,
+                  child: Column(
+                    children: [
+                      Expanded(
+                        flex: 1,
+                        child: Row(
+                          crossAxisAlignment: AppTheme.crossAxisAlignmentKeyPad,
+                          children: const [
+                            CalcButton(label: "1"),
+                            CalcButton(label: "2"),
+                            CalcButton(label: "3"),
+                          ],
+                        ),
+                      ),
+                      Expanded(
+                        flex: 1,
+                        child: Row(
+                          crossAxisAlignment: AppTheme.crossAxisAlignmentKeyPad,
+                          children: const [
+                            CalcButton(label: "0"),
+                            CalcButton(label: "D", flex: 2, long: true,),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const CalcButton(label: "=", long: true,),
+              ],
+            ),
         ),
       ],
     );
