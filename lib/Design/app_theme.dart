@@ -9,19 +9,38 @@ class AppTheme{
   static const textPrimary = Colors.black;
   static const primaryBackground = Colors.white;
   static final secondaryBackground = Colors.grey[100];
+
+  /// General
+  static const visualDensity = VisualDensity(
+      horizontal: 4,
+      vertical: 4
+  );
+
+  /// Shadows
+  static const textShadow = <Shadow>[
+    Shadow(
+      offset: Offset(1.0, 1.0),
+      blurRadius: 2.0,
+      color: primary,
+    )
+  ];
+  static const keyPadShadow = [
+    BoxShadow(
+      offset: Offset(2.0, 0),
+      blurRadius: 2.0,
+      color: AppTheme.primary,
+    )
+  ];
+
+  /// Text
+  static const textScaleFactorDisplay = 2.2;
   static TextStyle font = GoogleFonts.getFont(
       'Lora',
       textStyle:
       const TextStyle(
           color: textPrimary,
           fontWeight: FontWeight.bold,
-          shadows: <Shadow>[
-            Shadow(
-              offset: Offset(1.0, 1.0),
-              blurRadius: 2.0,
-              color: primary,
-            )
-          ]
+          shadows: textShadow
       ),
   );
 }

@@ -41,16 +41,15 @@ class _DiceCalcPageState extends State<DiceCalcPage> {
                         topLeft: Radius.circular(30.0),
                         topRight: Radius.circular(30.0)
                     ),
-                    boxShadow: const [
-                      BoxShadow(
-                        offset: Offset(2.0, 0),
-                        blurRadius: 2.0,
-                        color: AppTheme.primary,
-                      )
-                    ]
+                    boxShadow: AppTheme.keyPadShadow
                   ),
                   child: const Padding(
-                    padding: EdgeInsets.only(bottom: 40, left: 10, right: 10, top: 20),
+                    padding: EdgeInsets.only(
+                        bottom: 40,
+                        left: 10,
+                        right: 10,
+                        top: 20
+                    ),
                     child: CalcKeyPad(),
                   ),
                 )

@@ -32,7 +32,7 @@ class _CalcDisplayState extends ConsumerState<CalcDisplay> {
                   ref.watch(calcExpression),
                 maxLines: 2,
                 style: AppTheme.font,
-                textScaleFactor: 2.2,
+                textScaleFactor: AppTheme.textScaleFactorDisplay,
               ),
             ),
           ),
