@@ -1,3 +1,5 @@
-import '../../../Common/Class/expressionClass.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../../Common/Providers/ExpressionProvider.dart';
 
-Expression calcExpression = Expression();
+final calcExpressionProvider =
+StateNotifierProvider<ExpressionProvider, String>((ref) => ExpressionProvider());

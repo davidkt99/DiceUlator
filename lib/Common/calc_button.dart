@@ -62,29 +62,32 @@ class _CalcButtonState extends ConsumerState<CalcButton> {
         break;
       case "C": handleClear();
         break;
-      case "+": handleAddToStr(addSpaces(label));
+      case "+": handleOperator(label);
         break;
-      case "-": handleAddToStr(addSpaces(label));
+      case "-": handleOperator(label);
         break;
-      default: handleAddToStr(label);
+      default: handleNumber(label);
         break;
     }
-    print(ref.watch(calcExpression.provider));
   }
 
   void handleEquals(){
 
   }
 
-  void handleAddToStr(String label){
-    ref.read(calcExpression.provider.notifier).add(label);
+  void handleOperator(String val){
+    ref.read(calcExpressionProvider.notifier).add(addSpaces(val));
+  }
+
+  void handleNumber(String val){
+    ref.read(calcExpressionProvider.notifier).add(val);
   }
 
   void handleClear(){
-    ref.read(calcExpression.provider.notifier).clear();
+    ref.read(calcExpressionProvider.notifier).clear();
   }
 
-  String addSpaces(String label){
-    return " " + label + " ";
+  String addSpaces(String val){
+    return " " + val + " ";
   }
 }

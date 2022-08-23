@@ -1,7 +1,6 @@
 import 'package:diceulator/Design/app_theme.dart';
 import 'package:diceulator/Design/size_config.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -33,7 +32,7 @@ class _CalcDisplayState extends ConsumerState<CalcDisplay> {
               child: Container(
                 alignment: Alignment.centerRight,
                 child: Text(
-                    ref.watch(calcExpression.provider),
+                    ref.watch(calcExpressionProvider),
                   style: AppTheme.font,
                   textScaleFactor: SizeConfig.textScaleFactorDisplay,
                 ),
