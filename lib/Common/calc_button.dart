@@ -40,6 +40,6 @@ class _CalcButtonState extends ConsumerState<CalcButton> {
   void handleCalcButton(String label){
     HapticFeedback.mediumImpact();
     ref.read(calcExpression.notifier).add(label);
-    print(label);
+    print(ref.watch(calcExpression));
   }
 }

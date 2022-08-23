@@ -12,7 +12,14 @@ class AppTheme{
       textStyle:
       const TextStyle(
           color: Colors.black,
-          fontWeight: FontWeight.bold
-      )
+          fontWeight: FontWeight.bold,
+          shadows: <Shadow>[
+            Shadow(
+              offset: Offset(1.0, 1.0),
+              blurRadius: 2.0,
+              color: Colors.deepPurpleAccent,
+            )
+          ]
+      ),
   );
 }
