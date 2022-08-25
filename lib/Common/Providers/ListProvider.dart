@@ -5,6 +5,9 @@ class ListProvider extends StateNotifier<List> {
 
   void add(var val){
     state.insert(0, val);
+    if(state.length > 25){
+      state.removeLast();
+    }
   }
 
   void clear(){

@@ -31,15 +31,14 @@ class _CalcDisplayState extends ConsumerState<CalcDisplay> {
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: [
-                    Colors.white,
-                    Colors.white.withOpacity(0.8),
-                    Colors.white.withOpacity(0.5),
-                    Colors.white.withOpacity(0),
+                    AppTheme.primaryBackground,
+                    AppTheme.primaryBackground.withOpacity(0.8),
+                    AppTheme.primaryBackground.withOpacity(0.5),
+                    AppTheme.primaryBackground.withOpacity(0),
                   ],
                 ),
               ),
               child: ListView.builder(
-                  padding: const EdgeInsets.all(8),
                   itemCount: ref.watch(pastRollsProvider).length,
                   reverse: true,
                   itemBuilder: (BuildContext context, int index) {
@@ -69,7 +68,7 @@ class _CalcDisplayState extends ConsumerState<CalcDisplay> {
             ),
           ),
           Expanded(
-            flex: 2,
+            flex: 1,
             child: SingleChildScrollView(
               reverse: true,
               child: Column(
