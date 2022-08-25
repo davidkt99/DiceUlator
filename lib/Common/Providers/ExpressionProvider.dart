@@ -2,9 +2,12 @@ import 'package:diceulator/Util/string_functions.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'dart:math';
 import 'package:function_tree/function_tree.dart';
+import 'package:logging/logging.dart';
 
 class ExpressionProvider extends StateNotifier<String>{
   ExpressionProvider() : super("");
+
+  final log = Logger('ExpressionProvider');
 
   String postRngExpression = "";
   String expression = "";
@@ -75,10 +78,10 @@ class ExpressionProvider extends StateNotifier<String>{
 
   int evaluateAddSub(){
     var sol = postRngExpression.interpret();
-    print(expression);
-    print(state);
-    print(postRngExpression);
-    print(postRngExpression.interpret().toInt());
+    log.info(expression);
+    log.info(state);
+    log.info(postRngExpression);
+    log.info(sol.toString());
     return sol.toInt();
   }
 }
