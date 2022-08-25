@@ -72,14 +72,23 @@ class _CalcButtonState extends ConsumerState<CalcButton> {
   }
 
   void handleEquals(){
-
+    if(!ref.watch(calcExpressionProvider).endsWith("D") && !ref.watch(calcExpressionProvider).endsWith(" ")){
+      ref.read(calcExpressionProvider.notifier).handleDiceAndParseToStack();
+      ref.read(calcExpressionProvider.notifier).evaluateAddSub();
+    }
   }
 
   void handleOperator(String val){
+    if(!ref.read(calcExpressionProvider.notifier).isValidEntry(val)){
+      return;
+    }
     ref.read(calcExpressionProvider.notifier).add(addSpaces(val));
   }
 
   void handleNumber(String val){
+    if(!ref.read(calcExpressionProvider.notifier).isValidEntry(val)){
+      return;
+    }
     ref.read(calcExpressionProvider.notifier).add(val);
   }
 
