@@ -29,7 +29,7 @@ class _CalcButtonState extends ConsumerState<CalcButton> {
         child: ElevatedButton(
           child: Text(
               widget.label,
-              style: AppTheme.font,
+              style: AppTheme.primaryTextStyle,
             textScaleFactor: isAlphaNumeric(widget.label) || widget.label == "D" ?
             SizeConfig.textScaleFactorKeys :
             SizeConfig.textScaleFactorKeysOperators,
@@ -74,7 +74,8 @@ class _CalcButtonState extends ConsumerState<CalcButton> {
   void handleEquals(){
     if(!ref.watch(calcExpressionProvider).endsWith("D") && !ref.watch(calcExpressionProvider).endsWith(" ")){
       ref.read(calcExpressionProvider.notifier).handleDiceAndParseToStack();
-      ref.read(calcExpressionProvider.notifier).evaluateAddSub();
+      ref.read(solProvider.notifier).state = ref.read(calcExpressionProvider.notifier).postRngExpression + " \n " + ref.read(calcExpressionProvider.notifier).evaluateAddSub().toString();
+      ref.read(pastRollsProvider.notifier).add(ref.read(calcExpressionProvider.notifier).expression + " \n " + ref.read(calcExpressionProvider.notifier).evaluateAddSub().toString());
     }
   }
 

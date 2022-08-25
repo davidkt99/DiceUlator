@@ -15,6 +15,8 @@ class SizeConfig {
   static bool isMobilePortrait = false;
 
   static const textScaleFactorDisplay = 2.2;
+  static const textScaleFactorVal = 1.6;
+  static const textScaleFactorPastRolls = 1.0;
   static const textScaleFactorKeys = 2.6;
   static const textScaleFactorKeysOperators = 3.8;
 

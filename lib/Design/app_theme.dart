@@ -30,7 +30,7 @@ class AppTheme{
   ];
 
   /// Text
-  static TextStyle font = GoogleFonts.getFont(
+  static TextStyle primaryTextStyle = GoogleFonts.getFont(
       'Lora',
       textStyle:
       const TextStyle(
@@ -38,5 +38,13 @@ class AppTheme{
           fontWeight: FontWeight.bold,
           shadows: textShadow
       ),
+  );
+  static TextStyle secondaryTextStyle = GoogleFonts.getFont(
+    'Lora',
+    textStyle:
+    const TextStyle(
+        color: textPrimary,
+        shadows: textShadow
+    ),
   );
 }

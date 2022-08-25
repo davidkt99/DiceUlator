@@ -8,6 +8,8 @@ class ExpressionProvider extends StateNotifier<String>{
 
   String postRngExpression = "";
   String expression = "";
+  List<String> pastRolls = [];
+
   /// Basic
   void add(String val) {
     state = state + val;
@@ -72,10 +74,11 @@ class ExpressionProvider extends StateNotifier<String>{
   }
 
   int evaluateAddSub(){
+    var sol = postRngExpression.interpret();
     print(expression);
     print(state);
     print(postRngExpression);
     print(postRngExpression.interpret().toInt());
-    return postRngExpression.interpret().toInt();
+    return sol.toInt();
   }
 }
