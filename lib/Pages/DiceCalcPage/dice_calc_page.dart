@@ -19,6 +19,7 @@ class _DiceCalcPageState extends State<DiceCalcPage> {
     return Container(
       color: AppTheme.primaryBackground,
       child: SafeArea(
+        bottom: false,
         child: Container(
           color: AppTheme.primaryBackground,
             width: SizeConfig.widthMultiplier * 100,
