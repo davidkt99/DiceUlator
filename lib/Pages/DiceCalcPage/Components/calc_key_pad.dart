@@ -29,7 +29,7 @@ class CalcKeyPad extends StatelessWidget {
             children: const [
               CalcButton(label: "7"),
               CalcButton(label: "8"),
-              CalcButton(label: "7"),
+              CalcButton(label: "9"),
               CalcButton(label: "+")
             ],
           ),

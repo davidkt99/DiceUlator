@@ -1,6 +1,7 @@
 import 'package:diceulator/Design/app_theme.dart';
 import 'package:diceulator/Design/size_config.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'dice_calc_providers.dart';
@@ -23,6 +24,7 @@ class _CalcDisplayState extends ConsumerState<CalcDisplay> {
         mainAxisAlignment: MainAxisAlignment.end,
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
+          ///   List of Past Rolls
           Expanded(
             flex: 3,
             child: Container(
@@ -55,15 +57,19 @@ class _CalcDisplayState extends ConsumerState<CalcDisplay> {
               ),
             ),
           ),
+          ///   Current Solution
           Expanded(
             flex: 1,
-            child: Container(
-              alignment: Alignment.bottomRight,
-              child: Text(
-                ref.watch(solProvider),
-                style: AppTheme.secondaryTextStyle,
-                textScaleFactor: SizeConfig.textScaleFactorVal,
-                textAlign: TextAlign.right,
+            child: SingleChildScrollView(
+              reverse: true,
+              child: Container(
+                alignment: Alignment.bottomRight,
+                child: Text(
+                  ref.watch(solProvider),
+                  style: AppTheme.secondaryTextStyle,
+                  textScaleFactor: SizeConfig.textScaleFactorVal,
+                  textAlign: TextAlign.right,
+                ),
               ),
             ),
           ),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import 'Pages/DiceCalcPage/dice_calc_page.dart';
 
 void main() {

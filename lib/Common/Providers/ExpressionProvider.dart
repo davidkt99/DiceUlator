@@ -1,13 +1,15 @@
 import 'package:diceulator/Util/string_functions.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'dart:math';
-import 'package:function_tree/function_tree.dart';
-import 'package:logging/logging.dart';
+
+import 'package:logger/logger.dart';
 
 class ExpressionProvider extends StateNotifier<String>{
-  ExpressionProvider() : super("");
+  var logger = Logger(
+    printer: PrettyPrinter(),
+  );
 
-  final log = Logger('ExpressionProvider');
+  ExpressionProvider() : super("");
 
   String postRngExpression = "";
   String expression = "";
@@ -77,11 +79,21 @@ class ExpressionProvider extends StateNotifier<String>{
   }
 
   int evaluateAddSub(){
-    var sol = postRngExpression.interpret();
-    log.info(expression);
-    log.info(state);
-    log.info(postRngExpression);
-    log.info(sol.toString());
-    return sol.toInt();
+    var expression = postRngExpression.split("");
+    var sol = int.parse(expression.removeLast());
+
+    while(expression.isNotEmpty){
+      var curr = expression.removeLast();
+      if(curr == '+'){
+        sol = sol + int.parse(expression.removeLast());
+      }else if(curr == '-'){
+        sol = sol - int.parse(expression.removeLast());
+      }
+    }
+
+    logger.d(expression);
+    logger.d(postRngExpression);
+    logger.d(sol);
+    return sol;
   }
 }
