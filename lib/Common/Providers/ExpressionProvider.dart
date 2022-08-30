@@ -28,7 +28,6 @@ class ExpressionProvider extends StateNotifier<String>{
 
   /// Checks
   bool isValidEntry(String val){
-    //TODO:  if statement based on final char in expression and
     if(expression.endsWith(" ") || expression.isEmpty){
       if(val == "+" || val == "-"){
         return false;
@@ -43,6 +42,8 @@ class ExpressionProvider extends StateNotifier<String>{
       }
     }else{
       if(val == "D" && expression.split(" ").last.split("D").length > 1){
+        return false;
+      }else if(isNumeric(val) && isNumeric(expression[expression.length-1]) && expression.split(" ").last.split("D").last.length > 3){
         return false;
       }
       return true;
