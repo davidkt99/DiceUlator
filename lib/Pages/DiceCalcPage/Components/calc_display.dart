@@ -64,6 +64,7 @@ class _CalcDisplayState extends ConsumerState<CalcDisplay> {
               reverse: true,
               child: Container(
                 alignment: Alignment.bottomRight,
+                padding: const EdgeInsets.only(top: 5),
                 child: Text(
                   ref.watch(solProvider),
                   style: AppTheme.secondaryTextStyle,
@@ -74,7 +75,7 @@ class _CalcDisplayState extends ConsumerState<CalcDisplay> {
             ),
           ),
           Expanded(
-            flex: 1,
+            flex: 2,
             child: SingleChildScrollView(
               reverse: true,
               child: Column(
@@ -83,6 +84,7 @@ class _CalcDisplayState extends ConsumerState<CalcDisplay> {
                       ref.watch(calcExpressionProvider),
                     style: AppTheme.primaryTextStyle,
                     textScaleFactor: SizeConfig.textScaleFactorDisplay,
+                    textAlign: TextAlign.right,
                   ),
                   const SizedBox(height: 20,)
                 ],
