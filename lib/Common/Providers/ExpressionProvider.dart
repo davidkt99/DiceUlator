@@ -80,21 +80,19 @@ class ExpressionProvider extends StateNotifier<String>{
   }
 
   int evaluateAddSub(){
-    var expression = postRngExpression.split("");
-    var sol = int.parse(expression.removeLast());
+    var curExpression = postRngExpression.split("");
+    var sol = int.parse(curExpression.removeAt(0));
 
-    while(expression.isNotEmpty){
-      var curr = expression.removeLast();
+    while(curExpression.isNotEmpty){
+      var curr = curExpression.removeAt(0);
       if(curr == '+'){
-        sol = sol + int.parse(expression.removeLast());
+        sol = sol + int.parse(curExpression.removeAt(0));
       }else if(curr == '-'){
-        sol = sol - int.parse(expression.removeLast());
+        sol = sol - int.parse(curExpression.removeAt(0));
       }
     }
 
-    logger.d(expression);
-    logger.d(postRngExpression);
-    logger.d(sol);
+    logger.i(postRngExpression + " = " + sol.toString());
     return sol;
   }
 }
