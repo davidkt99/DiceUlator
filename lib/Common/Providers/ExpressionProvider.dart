@@ -12,6 +12,7 @@ class ExpressionProvider extends StateNotifier<String>{
   ExpressionProvider() : super("");
 
   String postRngExpression = "";
+  List<String> expressionList = [];
   String expression = "";
   List<String> pastRolls = [];
 
@@ -52,47 +53,58 @@ class ExpressionProvider extends StateNotifier<String>{
   }
 
   /// Solve
-  void handleDiceAndParseToStack(){
+  void parseToList(){
     postRngExpression = "";
-    var list = expression.split(" ");
-    var rng = Random();
-    
-    for(int i = 0;i < list.length;i++)
-      {
-        if(isNumeric(list[i])){
-          postRngExpression = postRngExpression + list[i];
-        }else if(isAlphaNumeric(list[i])){
-          var randList = list[i].split("D");
-          if(randList.first.isEmpty){
-            randList[0] = "1";
-          }
-          var numOfDice = int.parse(randList.first);
-          for(int j = 0;j < numOfDice;j++){
-            postRngExpression = postRngExpression + (rng.nextInt(int.parse(randList.last))+1).toString();
-            if(j < numOfDice-1){
-              postRngExpression = postRngExpression + "+";
-            }
-          }
-        }else{
-          postRngExpression = postRngExpression + list[i];
-        }
+    expressionList = [];
+    String curVal = "";
+
+    for(var char in expression.split("")){
+      if(isNumeric(char)){
+        curVal += char;
+      }else if(isOperator(char)){
+        expressionList.addAll([curVal, char]);
+        curVal = "";
       }
+    }
+    expressionList.add(curVal);
   }
 
   int evaluateAddSub(){
-    var curExpression = postRngExpression.split("");
-    var sol = int.parse(curExpression.removeAt(0));
+    var sol = int.parse(expressionList.first);
+    var curr = 0;
 
-    while(curExpression.isNotEmpty){
-      var curr = curExpression.removeAt(0);
-      if(curr == '+'){
-        sol = sol + int.parse(curExpression.removeAt(0));
-      }else if(curr == '-'){
-        sol = sol - int.parse(curExpression.removeAt(0));
+    for(int i = 1;i < expressionList.length;i++){
+      if(isNumeric(expressionList[i])){
+        curr = int.parse(expressionList[i]);
+      }else{
+        switch(expressionList[i]){
+          case "+":
+            sol = sol + curr;
+            break;
+          case "-":
+            sol = sol - curr;
+            break;
+        }
       }
     }
 
+
     logger.i(postRngExpression + " = " + sol.toString());
     return sol;
+  }
+
+  List diceToList(int numOfDice, int diceSides){
+    var rng = Random();
+    List<String> diceList = [];
+
+    for(int i = 0;i < numOfDice;i++){
+      diceList.add((rng.nextInt(diceSides)+1).toString());
+      if(i < numOfDice-1){
+        diceList.add("+");
+      }
+    }
+
+    logger.i(diceList);
+    return diceList;
   }
 }

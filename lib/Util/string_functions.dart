@@ -10,3 +10,8 @@ bool isNumeric(String str) {
 bool isAlphaNumeric(String str) {
   return _validCharacters.hasMatch(str);
 }
+
+/// check if string is a operator
+bool isOperator(String str) {
+  return str == "+" || str == "-" || str == "D";
+}

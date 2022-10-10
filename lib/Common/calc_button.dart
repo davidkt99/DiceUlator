@@ -73,7 +73,7 @@ class _CalcButtonState extends ConsumerState<CalcButton> {
 
   void handleEquals(){
     if(!ref.watch(calcExpressionProvider).endsWith("D") && !ref.watch(calcExpressionProvider).endsWith(" ") && ref.watch(calcExpressionProvider).isNotEmpty){
-      ref.read(calcExpressionProvider.notifier).handleDiceAndParseToStack();
+      ref.read(calcExpressionProvider.notifier).parseToList();
       var sol = ref.read(calcExpressionProvider.notifier).evaluateAddSub().toString();
       ref.read(solProvider.notifier).state = ref.read(calcExpressionProvider.notifier).postRngExpression + " \n " + sol;
       ref.read(pastRollsProvider.notifier).add(ref.read(calcExpressionProvider.notifier).expression + " \n " + sol);
